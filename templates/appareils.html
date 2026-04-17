@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Appareils Photo</h2>
+<p>Découvrez nos appareils triés par catégories : Amateur, Amateur sérieux, Professionnel.</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Catégorie</th><th>Marque</th><th>Modèle</th><th>Date de sortie</th><th>Score (/5)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cam in cameras %}
+        <tr>
+            <td>{{ cam.category }}</td>
+            <td>{{ cam.brand }}</td>
+            <td>{{ cam.model }}</td>
+            <td>{{ cam.release_date }}</td>
+            <td>{{ cam.score }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5">Aucun appareil photo en base de données.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

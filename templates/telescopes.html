@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Téléscopes</h2>
+<p>Découvrez nos téléscopes triés par catégories : Téléscopes pour enfants, Automatisés, Téléscopes complets.</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Catégorie</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Date de sortie</th>
+            <th>Score (/5)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tel in telescopes %}
+        <tr>
+            <td>{{ tel.category }}</td>
+            <td>{{ tel.brand }}</td>
+            <td>{{ tel.model }}</td>
+            <td>{{ tel.release_date }}</td>
+            <td>{{ tel.score }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5" class="text-center">Aucun téléscope en base de données.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
