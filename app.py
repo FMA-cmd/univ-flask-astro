@@ -92,33 +92,30 @@ def seed_data():
     db.drop_all() 
     db.create_all()
 
-    # 1. Galerie d'images locales
     photos_originales = [
         Photo(
             title="Aurore Boréale Polaire", 
-            url="images/aurore.jpg",  # <-- Chemin vers le dossier static
+            url="images/aurore.jpg", 
             description="Les vents solaires interagissant avec l'atmosphère terrestre, créant un voile émeraude."
         ),
         Photo(
             title="L'Étincelle Cosmique", 
-            url="images/nebuleuse.jpg", # <-- Chemin vers le dossier static
+            url="images/nebuleuse.jpg", 
             description="Une nébuleuse gazeuse rougeoyante où naissent de nouvelles étoiles."
         ),
         Photo(
             title="Le Cœur Galactique", 
-            url="images/galaxie.jpg",   # <-- Chemin vers le dossier static
+            url="images/galaxie.jpg",  
             description="Notre propre galaxie, la Voie Lactée, vue dans un ciel d'une pureté absolue."
         )
     ]
     
-    # 2. Appareils photos pointus
     appareils_originaux = [
         Camera(category='Amateur', brand='Sony', model='a6400', release_date=date(2019, 1, 15), score=4, resume='Compact, léger et très performant en basse lumière. Parfait pour les panoramas nocturnes.'),
         Camera(category='Amateur sérieux', brand='Nikon', model='D810A', release_date=date(2015, 2, 10), score=5, resume='Une édition spéciale Astro. Son filtre infrarouge modifié permet de capter la couleur rouge des nébuleuses.'),
         Camera(category='Professionnel', brand='Hasselblad', model='X1D II 50C', release_date=date(2019, 6, 19), score=5, resume='Appareil hybride moyen-format. Une dynamique d\'image époustouflante pour des clichés stellaires sans aucun grain.')
     ]
 
-    # 3. Téléscopes d'exception
     telescopes_originaux = [
         Telescope(category='Téléscopes pour enfants', brand='Bresser', model='Messier AR-90', release_date=date(2014, 1, 1), score=4, resume='Une lunette classique au look rétro, idéale et robuste pour admirer les cratères de la Lune.'),
         Telescope(category='Automatisés', brand='ZWO', model='Seestar S50', release_date=date(2023, 7, 1), score=5, resume='Le futur de l\'astro : un robot compact de la taille d\'un livre qui s\'aligne et photographie les galaxies tout seul.'),
