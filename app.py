@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import date
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'cle_astro_super_securisee_2024'
+app.config['SECRET_KEY'] = 'cle_TP_astro'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/astronomie_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -92,7 +92,7 @@ def seed_data():
     db.drop_all() 
     db.create_all()
 
-    photos_originales = [
+    photos = [
         Photo(
             title="Aurore Boréale Polaire", 
             url="images/aurore.jpg", 
@@ -110,21 +110,21 @@ def seed_data():
         )
     ]
     
-    appareils_originaux = [
+    appareils = [
         Camera(category='Amateur', brand='Sony', model='a6400', release_date=date(2019, 1, 15), score=4, resume='Compact, léger et très performant en basse lumière. Parfait pour les panoramas nocturnes.'),
         Camera(category='Amateur sérieux', brand='Nikon', model='D810A', release_date=date(2015, 2, 10), score=5, resume='Une édition spéciale Astro. Son filtre infrarouge modifié permet de capter la couleur rouge des nébuleuses.'),
         Camera(category='Professionnel', brand='Hasselblad', model='X1D II 50C', release_date=date(2019, 6, 19), score=5, resume='Appareil hybride moyen-format. Une dynamique d\'image époustouflante pour des clichés stellaires sans aucun grain.')
     ]
 
-    telescopes_originaux = [
+    telescopes = [
         Telescope(category='Téléscopes pour enfants', brand='Bresser', model='Messier AR-90', release_date=date(2014, 1, 1), score=4, resume='Une lunette classique au look rétro, idéale et robuste pour admirer les cratères de la Lune.'),
         Telescope(category='Automatisés', brand='ZWO', model='Seestar S50', release_date=date(2023, 7, 1), score=5, resume='Le futur de l\'astro : un robot compact de la taille d\'un livre qui s\'aligne et photographie les galaxies tout seul.'),
         Telescope(category='Téléscopes complets', brand='Meade', model='LX200-ACF 14"', release_date=date(2012, 1, 1), score=5, resume='Un véritable monstre d\'observatoire miniature (plus de 50kg) pour explorer le ciel très profond.')
     ]
 
-    db.session.add_all(photos_originales)
-    db.session.add_all(appareils_originaux)
-    db.session.add_all(telescopes_originaux)
+    db.session.add_all(photos)
+    db.session.add_all(appareils)
+    db.session.add_all(telescopes)
     db.session.commit()
 
 if __name__ == '__main__':
