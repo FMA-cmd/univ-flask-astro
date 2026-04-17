@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Galerie de Photographies</h2>
-<p>Retrouvez ici les plus belles photographies d'astronomie de notre communauté.</p>
-
-<div class="row mt-4">
-    <div class="col-12 text-center p-5 bg-light border rounded">
-        <p class="text-muted mb-0">La galerie est actuellement vide. Les photos apparaîtront ici !</p>
+<h2 class="mb-4">Galerie de Photographies</h2>
+<div class="row">
+    {% for photo in photos %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ url_for('static', filename=photo.url) }}" class="card-img-top" alt="{{ photo.title }}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ photo.title }}</h5>
+                <p class="card-text text-muted">{{ photo.description }}</p>
+            </div>
+        </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
